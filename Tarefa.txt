@@ -1,0 +1,14 @@
+ --Criar tarefa
+--Criar grupos de tarefas
+--Remover tarefa
+--Editar tarefa
+--Detacar tarefa (dar prioridade)
+--Agrupar tarefas
+--Listar tarefas
+
+
+
+use Trabalho_Tarefas;
+db.Usuario.save({ _id: Schema.Types.ObjectId,nome_usuario String,email_usuario String,senha_usuario String, senhaC_usuario String});
+db.Grupo.save({ _id: Schema.Types.ObjectId,nome_gupo});
+db.Tarefa.save({ _id: Schema.Types.ObjectId,desc_tarefa,status_tarefa,nivelPrioridade_tarefa,data_tarefa,grupo_tarefa:{ type: Schema.Types.ObjectId, ref: 'Grupo'}});
