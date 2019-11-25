@@ -4,10 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-var mongoose = require('mongoose');
-
+const passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+require('./config/passport-config');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
 var tasksRouter = require('./routes/tasks');
 var taskRouter = require('./routes/task');
 
@@ -25,10 +27,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+app.use(passport.initialize());
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/tasks', tasksRouter);
-app.use('/task', taskRouter);
+app.use('/users', passport.authenticate('jwt', {session: false}), usersRouter);
+app.use('/user', userRouter);
+app.use('/tasks', passport.authenticate('jwt', {session: false}), tasksRouter);
+app.use('/task', passport.authenticate('jwt', {session: false}), taskRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
