@@ -18,7 +18,7 @@ CREATE TABLE tasks (
   isPriority BOOL DEFAULT FALSE,
   created_date TIMESTAMP DEFAULT NOW(),
   deadline DATE,
-  grupoTarefa INT NOT NULL REFERENCES grupo (id),
+  grupoTarefa INT REFERENCES grupo (id),
   user_id INT NOT NULL REFERENCES users(id)
 );
 

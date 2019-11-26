@@ -9,6 +9,7 @@ export default class TaskForm extends React.Component {
     this.state = {
       task: {
         description: '',
+        deadline:'',
       },
       message: '',
       isSaving: false,
@@ -45,6 +46,7 @@ export default class TaskForm extends React.Component {
       this.setState({
         task: {
           description: '',
+          deadline:'',
         },
         isSaving: false,
         message: res.message,
@@ -54,6 +56,7 @@ export default class TaskForm extends React.Component {
       this.setState({
         task: {
           description: '',
+          deadline:'',
         },
         isSaving: false,
         message: e.message,
@@ -69,6 +72,7 @@ export default class TaskForm extends React.Component {
       <form>
         <p>Descrição da tarefa</p>
         <input type="text" name="description" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <input type="date" name="deadline" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
         <button onClick={this.handleSubmit}>Criar Tarefa</button>
       </form>
       <Link to='/'>Voltar</Link>
