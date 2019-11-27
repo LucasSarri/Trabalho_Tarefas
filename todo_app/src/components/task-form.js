@@ -74,11 +74,11 @@ export default class TaskForm extends React.Component {
       <Message message={this.state.message} show={this.state.visible} toggle={this.onDimiss} />
       <form>
         <p>Descrição da Tarefa:</p>
-        <input type="text" name="description" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <input type="text" name="description" value={this.state.task.description} disabled={this.state.isSaving} onChange={this.handleChange} />
         <p>Data Limite Tarefa:</p>
-        <input type="date" name="deadline" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <input type="date" name="deadline" value={this.state.task.deadline} disabled={this.state.isSaving} onChange={this.handleChange} />
         <p>Grupo da Tarefa:</p>
-        <input type="text" name="grupoTarefa" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <input type="text" name="grupoTarefa" value={this.state.task.grupoTarefa} disabled={this.state.isSaving} onChange={this.handleChange} />
         <p>
           <button onClick={this.handleSubmit}>Criar Tarefa</button>
         </p>
