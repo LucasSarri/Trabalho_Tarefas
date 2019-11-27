@@ -18,7 +18,7 @@ CREATE TABLE tasks (
   isPriority BOOL DEFAULT FALSE,
   created_date TIMESTAMP DEFAULT NOW(),
   deadline DATE,
-  grupoTarefa INT REFERENCES grupo (id),
+  grupoTarefa VARCHAR(50) REFERENCES grupo (name),
   user_id INT NOT NULL REFERENCES users(id)
 );
 
@@ -27,7 +27,7 @@ INSERT INTO users(email, password, passwordConfirm,name) Values('rsdevigo@gmail.
 
 INSERT INTO grupo(name) Values('Teste');
 
-INSERT INTO tasks(description,deadline,grupoTarefa,user_id) VALUES('Uma tarefa ai','2019-11-27',1,1);
+INSERT INTO tasks(description,deadline,grupoTarefa,user_id) VALUES('Uma tarefa ai','2019-11-27','Teste',1);
 
 select * from users;
 

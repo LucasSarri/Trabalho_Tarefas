@@ -10,6 +10,7 @@ export default class TaskForm extends React.Component {
       task: {
         description: '',
         deadline:'',
+        grupoTarefa:'',
       },
       message: '',
       isSaving: false,
@@ -47,6 +48,7 @@ export default class TaskForm extends React.Component {
         task: {
           description: '',
           deadline:'',
+          grupoTarefa:'',
         },
         isSaving: false,
         message: res.message,
@@ -57,6 +59,7 @@ export default class TaskForm extends React.Component {
         task: {
           description: '',
           deadline:'',
+          grupoTarefa:'',
         },
         isSaving: false,
         message: e.message,
@@ -70,10 +73,15 @@ export default class TaskForm extends React.Component {
     <div>
       <Message message={this.state.message} show={this.state.visible} toggle={this.onDimiss} />
       <form>
-        <p>Descrição da tarefa</p>
+        <p>Descrição da Tarefa:</p>
         <input type="text" name="description" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <p>Data Limite Tarefa:</p>
         <input type="date" name="deadline" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
-        <button onClick={this.handleSubmit}>Criar Tarefa</button>
+        <p>Grupo da Tarefa:</p>
+        <input type="text" name="grupoTarefa" value={this.state.task.desc} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <p>
+          <button onClick={this.handleSubmit}>Criar Tarefa</button>
+        </p>
       </form>
       <Link to='/'>Voltar</Link>
     </div>
