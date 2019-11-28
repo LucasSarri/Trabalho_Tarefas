@@ -50,6 +50,7 @@ class Task extends React.Component {
         {this.state.task.description} | 
         {`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`} | 
         {this.state.task.user.name}
+        {this.state.task.grupo.name}
         <p>
           <label>Feito ? </label>
           <input type="checkbox" name="isDone" checked={this.state.task.isDone} onChange={this.handleChangeCheckBox} />
