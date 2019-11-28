@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoutButtonStyle from './logout-button.module.css';
 import { logout } from '../helpers/user-helper';
 import { navigate } from 'gatsby';
 
@@ -14,8 +15,8 @@ export default class LogoutButton extends React.Component {
 
   render() {
     return (
-      <p>
-        <button onClick={this.logout}>Logout</button>
+      <p classname={LogoutButtonStyle.Paragrafo}>
+        <button onClick={this.logout} classname={LogoutButtonStyle.Botao}>Logout</button>
       </p>
     );
   }
