@@ -1,3 +1,4 @@
+var db = require('./database');
 var Model = require('./model');
 
 class GrupoTarefa extends Model {
