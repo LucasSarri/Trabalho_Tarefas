@@ -57,7 +57,6 @@ class Task extends React.Component {
           <label> Grupo: </label>
           <input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChangeCheckBox} />
         </p>
-        
       </div>
     );
   }
