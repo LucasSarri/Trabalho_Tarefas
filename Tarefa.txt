@@ -1,7 +1,10 @@
- --Criar tarefa
+--Criar tarefa
 --Criar grupos de tarefas
 --Remover tarefa
 --Editar tarefa
 --Detacar tarefa (dar prioridade)
 --Agrupar tarefas
 --Listar tarefas
+
+<p classname={TaskFormStyle.PARAGRAFO}>Grupo da Tarefa:</p>
+<input type="text" name="grupoTarefa" value={this.state.task.grupoTarefa} disabled={this.state.isSaving} onChange={this.handleChange} />
