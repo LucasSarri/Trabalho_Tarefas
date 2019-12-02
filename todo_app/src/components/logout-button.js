@@ -15,8 +15,8 @@ export default class LogoutButton extends React.Component {
 
   render() {
     return (
-      <p classname={LogoutButtonStyle.Paragrafo}>
-        <button onClick={this.logout} classname={LogoutButtonStyle.Botao}>Logout</button>
+      <p classname={LogoutButtonStyle.PARAGRAFO}>
+        <button onClick={this.logout} classname={LogoutButtonStyle.BOTAO}>Logout</button>
       </p>
     );
   }

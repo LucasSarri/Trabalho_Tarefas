@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskStyle from './task.module.css';
 import TaskModel from './models/task-model';
 import Message from './message';
 import {navigate} from 'gatsby';
@@ -45,15 +46,16 @@ class Task extends React.Component {
   render() {
     let date = new Date(this.state.task.created_date*1000);
     return (
-      <div>
+      <div classname={TaskStyle.DIV}>
         <Message message={this.state.message} show={this.state.visible} toggle={this.onDimiss} />
         {this.state.task.description} | 
         {`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`} | 
         {this.state.task.user.name}
-        {this.state.task.grupo.name}
-        <p>
+        <p classname={TaskStyle.PARAGRAFO}>
           <label>Feito ? </label>
           <input type="checkbox" name="isDone" checked={this.state.task.isDone} onChange={this.handleChangeCheckBox} />
+          <label> Grupo: </label>
+          <input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChangeCheckBox} />
         </p>
         
       </div>

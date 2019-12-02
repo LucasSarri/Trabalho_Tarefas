@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskModel from '../components/models/task-model';
+import TaskFormStyle from './task-form.module.css';
 import {Link} from 'gatsby';
 import Message from '../components/message';
 
@@ -70,17 +71,17 @@ export default class TaskForm extends React.Component {
 
   render() {
     return (
-    <div>
+    <div classname={TaskFormStyle.DIV}>
       <Message message={this.state.message} show={this.state.visible} toggle={this.onDimiss} />
-      <form>
-        <p>Descrição da Tarefa:</p>
+      <form classname={TaskFormStyle.FORM}>
+        <p classname={TaskFormStyle.PARAGRAFO}>Descrição da Tarefa:</p>
         <input type="text" name="description" value={this.state.task.description} disabled={this.state.isSaving} onChange={this.handleChange} />
-        <p>Data Limite Tarefa:</p>
+        <p classname={TaskFormStyle.PARAGRAFO}>Data Limite Tarefa:</p>
         <input type="date" name="deadline" value={this.state.task.deadline} disabled={this.state.isSaving} onChange={this.handleChange} />
-        <p>Grupo da Tarefa:</p>
+        <p classname={TaskFormStyle.PARAGRAFO}>Grupo da Tarefa:</p>
         <input type="text" name="grupoTarefa" value={this.state.task.grupoTarefa} disabled={this.state.isSaving} onChange={this.handleChange} />
-        <p>
-          <button onClick={this.handleSubmit}>Criar Tarefa</button>
+        <p classname={TaskFormStyle.PARAGRAFO}>
+          <button onClick={this.handleSubmit} classname={TaskFormStyle.BOTAO}>Criar Tarefa</button>
         </p>
       </form>
       <Link to='/'>Voltar</Link>
