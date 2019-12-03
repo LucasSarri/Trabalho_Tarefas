@@ -81,6 +81,8 @@ export default class TaskForm extends React.Component {
         <input type="text" name="description" value={this.state.task.description} disabled={this.state.isSaving} onChange={this.handleChange} />
         <p classname={TaskFormStyle.PARAGRAFO}>Data Limite Tarefa:</p>
         <input type="date" name="deadline" value={this.state.task.deadline} disabled={this.state.isSaving} onChange={this.handleChange} />
+        <p classname={TaskFormStyle.PARAGRAFO}>Grupo da Tarefa:</p>
+        <input type="text" name="grupoTarefa" value={this.state.task.grupoTarefa} disabled={this.state.isSaving} onChange={this.handleChange} />
         <p classname={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
         <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChange} />
         <p classname={TaskFormStyle.PARAGRAFO}>
