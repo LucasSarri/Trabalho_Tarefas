@@ -10,9 +10,8 @@ export default class TaskForm extends React.Component {
     this.state = {
       task: {
         description: '',
-        isPriority: false,
         deadline:'',
-        //grupoTarefa:'',
+        grupoTarefa:'',
       },
       message: '',
       isSaving: false,
@@ -50,8 +49,7 @@ export default class TaskForm extends React.Component {
         task: {
           description: '',
           deadline:'',
-          isPriority: false,
-          //grupoTarefa:'',
+          grupoTarefa:'',
         },
         isSaving: false,
         message: res.message,
@@ -62,8 +60,7 @@ export default class TaskForm extends React.Component {
         task: {
           description: '',
           deadline:'',
-          isPriority: false,
-          //grupoTarefa:'',
+          grupoTarefa:'',
         },
         isSaving: false,
         message: e.message,
