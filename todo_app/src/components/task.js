@@ -56,7 +56,7 @@ class Task extends React.Component {
           <input type="checkbox" name="isDone" checked={this.state.task.isDone} onChange={this.handleChangeCheckBox} />
           <label> Grupo: </label>
           <input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChangeCheckBox} />
-          <p classname={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
+          <p classname={TaskStyle.PARAGRAFO}>É uma prioridade ?</p>
         <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChange} />
         </p>
       </div>
