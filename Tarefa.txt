@@ -5,4 +5,6 @@
 --Detacar tarefa (dar prioridade)
 --Agrupar tarefas
 --Listar tarefas
-
+------------------------------
+<label> Grupo: </label>
+<input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChange} />

@@ -42,18 +42,6 @@ class Task extends React.Component {
     this.setState(newState);
   }
 
-  async handleChange(event) {
-    let newState = {
-      ...this.state
-    };
-    newState.task[event.target.name] =  event.target.value;
-    newState.message = await this._updateTask();
-    newState.visible = true;
-    this.setState(newState);
-  }
-
-  
-
   render() {
     let date = new Date(this.state.task.created_date*1000);
     return (
@@ -63,12 +51,10 @@ class Task extends React.Component {
         {`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`} | 
         {this.state.task.user.name}
         <p classname={TaskStyle.PARAGRAFO}>
-          <label>Feito ? </label>
+          <p classname={TaskFormStyle.PARAGRAFO}>Feito ?</p>
           <input type="checkbox" name="isDone" checked={this.state.task.isDone} onChange={this.handleChangeCheckBox} />
           <p classname={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
           <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChangeCheckBox} />
-          <label> Grupo: </label>
-          <input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChange} />
         </p>
       </div>
     );
