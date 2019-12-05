@@ -25,6 +25,7 @@ class Task extends React.Component {
     try {
       let task = {...this.state.task};
       delete task.user;
+      delete task.grupo;
       delete task.created_date;
       let res = await TaskModel.update(this.state.task.id, task);
       return res.message;
@@ -36,6 +37,16 @@ class Task extends React.Component {
   async handleChangeCheckBox(e) {
     let newState = {...this.state};
     newState.task[e.target.name] = !this.state.task[e.target.name];
+    newState.message = await this._updateTask();
+    newState.visible = true;
+    this.setState(newState);
+  }
+
+  async handleChange(event) {
+    let newState = {
+      ...this.state
+    };
+    newState.task[event.target.name] =  event.target.value;
     newState.message = await this._updateTask();
     newState.visible = true;
     this.setState(newState);
@@ -54,10 +65,10 @@ class Task extends React.Component {
         <p classname={TaskStyle.PARAGRAFO}>
           <label>Feito ? </label>
           <input type="checkbox" name="isDone" checked={this.state.task.isDone} onChange={this.handleChangeCheckBox} />
+          <p classname={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
+          <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChangeCheckBox} />
           <label> Grupo: </label>
-          <input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChangeCheckBox} />
-          <p classname={TaskStyle.PARAGRAFO}>É uma prioridade ?</p>
-        <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChange} />
+          <input type="text" name="grupoTarefa" value={this.state.task.grupo.name} onChange={this.handleChange} />
         </p>
       </div>
     );
