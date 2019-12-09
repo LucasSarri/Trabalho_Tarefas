@@ -1,6 +1,5 @@
 var db = require('./database');
 var User = require('./user');
-var GrupoTarefa = require('./grupo-tarefa');
 var Model = require('./model');
 
 class Task extends Model {
@@ -13,11 +12,6 @@ class Task extends Model {
         foreignKey: 'user_id',
         model: User,
         name: 'user'
-      },
-      {
-        foreignKey: 'grupoTarefa',
-        model: GrupoTarefa,
-        name: 'grupo'
       }
     ];
   }

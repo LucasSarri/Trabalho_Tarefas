@@ -25,7 +25,6 @@ class Task extends React.Component {
     try {
       let task = {...this.state.task};
       delete task.user;
-      delete task.grupo;
       delete task.created_date;
       let res = await TaskModel.update(this.state.task.id, task);
       return res.message;
@@ -51,9 +50,9 @@ class Task extends React.Component {
         {`${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`} | 
         {this.state.task.user.name}
         <p classname={TaskStyle.PARAGRAFO}>
-          <p classname={TaskFormStyle.PARAGRAFO}>Feito ?</p>
+          <p classname={TaskStyle.PARAGRAFO}>Feito ?</p>
           <input type="checkbox" name="isDone" checked={this.state.task.isDone} onChange={this.handleChangeCheckBox} />
-          <p classname={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
+          <p classname={TaskStyle.PARAGRAFO}>É uma prioridade ?</p>
           <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChangeCheckBox} />
         </p>
       </div>

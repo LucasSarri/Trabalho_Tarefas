@@ -2,6 +2,7 @@ import React from 'react';
 import { handleLogin } from '../helpers/user-helper';
 import { navigate } from 'gatsby';
 import Message from '../components/message';
+import loginStyle from './loginStyle.module.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -43,10 +44,12 @@ class Login extends React.Component {
     return (
       <div>
         <Message message={this.state.message} show={this.state.visible} toggle={this.onDimiss} />
-        <form>
-          <input type="text" name="email" value={this.state.user.email} onChange={this.handleChange} />
-          <input type="password" name="password" value={this.state.user.password} onChange={this.handleChange} />
-          <input type="button" value="Entrar" onClick={this.handleSubmit} />
+        <form >
+          <div className={loginStyle.DIV}>
+            <p className={loginStyle.Paragrafo}><input type="text" name="email"  value={this.state.user.email} onChange={this.handleChange} /></p>
+            <p className={loginStyle.Paragrafo}><input type="password" name="password" value={this.state.user.password} onChange={this.handleChange} /></p>
+            <p className={loginStyle.Paragrafo}><input type="button" value="Entrar" onClick={this.handleSubmit} /></p>
+          </div>,   
         </form>
       </div>
     );

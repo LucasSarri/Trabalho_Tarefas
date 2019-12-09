@@ -10,15 +10,14 @@ export default class TaskForm extends React.Component {
     this.state = {
       task: {
         description: '',
-        isPriority: false,
-        deadline:'',
-        grupoTarefa:'',
+        isPriority:false
       },
       message: '',
       isSaving: false,
       visible: false
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeCheckBox = this.handleChangeCheckBox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDimiss = this.onDimiss.bind(this);
   }
@@ -34,8 +33,6 @@ export default class TaskForm extends React.Component {
   async handleChangeCheckBox(e) {
     let newState = {...this.state};
     newState.task[e.target.name] = !this.state.task[e.target.name];
-    newState.message = await this._updateTask();
-    newState.visible = true;
     this.setState(newState);
   }
 
@@ -57,9 +54,7 @@ export default class TaskForm extends React.Component {
       this.setState({
         task: {
           description: '',
-          deadline:'',
-          isPriority: false,
-          grupoTarefa:'',
+          isPriority:false
         },
         isSaving: false,
         message: res.message,
@@ -69,9 +64,7 @@ export default class TaskForm extends React.Component {
       this.setState({
         task: {
           description: '',
-          deadline:'',
-          isPriority: false,
-          grupoTarefa:'',
+          isPriority:false
         },
         isSaving: false,
         message: e.message,
@@ -82,17 +75,15 @@ export default class TaskForm extends React.Component {
 
   render() {
     return (
-    <div classname={TaskFormStyle.DIV}>
+    <div className={TaskFormStyle.DIV}>
       <Message message={this.state.message} show={this.state.visible} toggle={this.onDimiss} />
-      <form classname={TaskFormStyle.FORM}>
-        <p classname={TaskFormStyle.PARAGRAFO}>Descrição da Tarefa:</p>
+      <form className={TaskFormStyle.FORM}>
+        <p className={TaskFormStyle.PARAGRAFO}>Descrição da Tarefa:</p>
         <input type="text" name="description" value={this.state.task.description} disabled={this.state.isSaving} onChange={this.handleChange} />
-        <p classname={TaskFormStyle.PARAGRAFO}>Data Limite Tarefa:</p>
-        <input type="date" name="deadline" value={this.state.task.deadline} disabled={this.state.isSaving} onChange={this.handleChange} />
-        <p classname={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
+        <p className={TaskFormStyle.PARAGRAFO}>É uma prioridade ?</p>
         <input type="checkbox" name="isPriority" checked={this.state.task.isPriority} disabled={this.state.isSaving} onChange={this.handleChangeCheckBox} />
-        <p classname={TaskFormStyle.PARAGRAFO}>
-          <button onClick={this.handleSubmit} classname={TaskFormStyle.BOTAO}>Criar Tarefa</button>
+        <p className={TaskFormStyle.PARAGRAFO}>
+          <button onClick={this.handleSubmit} className={TaskFormStyle.BOTAO}>Criar Tarefa</button>
         </p>
       </form>
       <Link to='/'>Voltar</Link>
